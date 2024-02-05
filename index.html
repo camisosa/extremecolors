@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="hojadeestilo.css">
+    <script src="script.js" defer></script>
+    <style>
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="barra">
+            <img class="logo" src="logo.png" alt="logo">
+            <div class="barra-navegacion">
+                <ul>
+                    <li><a href="#" onclick="mostrarSeccion('home')">HOME</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('cursos')">CURSOS</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('articulos')">ARTICULOS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="home seccion">
+            <!-- Contenido de la sección home -->
+            <div class="portada">
+                <h1 class="encabezado">Encabezado de portada</h1>
+            </div>
+            <div class="quienes-somos">
+                <h2>titulo</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            </div>
+            <div class="servicio">
+                <h2>titulo</h2>
+                <p>sli de imagenes</p>
+            </div>
+            <div>
+                <ul>
+                    <li>opcion 1</li>
+                    <li>opcion 2</li>
+                    <li>opcion 3</li>
+                    <li>opcion 4</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cursos seccion">
+            <!-- Contenido de la sección cursos -->
+            <div class="portada">
+                <h1 class="encabezado">cursos</h1>
+                <h2 class="encabezado">sub-titulo</h2>
+            </div>
+            <div class="contenedor-cursos">
+                <div class="curso-div">
+                    <h3>curso</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                </div>
+                <!-- Otro contenido de la sección cursos -->
+            </div>
+        </div>
+
+        <div class="articulos seccion">
+            <!-- Contenido de la sección articulos -->
+            <div class="portada">
+                <h1 class="encabezado">Encabezado de portada</h1>
+                <h2>slide de imagenes con oferta</h2>
+            </div>
+            <div class="contenedor-articulos">
+                <div class="articulo">
+                    <p>image</p>
+                    <h3>Nombre</h3>
+                    <h4>$900</h4>
+                </div>
+                <!-- Otro contenido de la sección articulos -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Al cargar la página, muestra la sección "home" por defecto
+        window.onload = function () {
+            mostrarSeccion('home');
+        };
+
+        function mostrarSeccion(seccion) {
+            // Oculta todas las secciones
+            var secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(function (item) {
+                item.style.display = 'none';
+            });
+
+            // Muestra la sección correspondiente
+            var seccionMostrada = document.querySelector('.' + seccion);
+            if (seccionMostrada) {
+                seccionMostrada.style.display = 'block';
+            }
+
+            // Resalta la opción activa en la barra de navegación
+            var opciones = document.querySelectorAll('.barra-navegacion li a');
+            opciones.forEach(function (opcion) {
+                opcion.classList.remove('active');
+            });
+
+            var opcionActiva = document.querySelector('.barra-navegacion li a[href="#"][onclick="mostrarSeccion(\'' + seccion + '\')"]');
+            if (opcionActiva) {
+                opcionActiva.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

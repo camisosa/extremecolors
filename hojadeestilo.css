@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    /* Sin márgenes */
+    padding: 0;
+    /* Sin relleno */
+    box-sizing: border-box;
+    /* Incluye el borde y el relleno en el tamaño total */
+}
+
+.contenedor {
+    padding: 0;
+    /* Sin relleno */
+    box-sizing: border-box;
+    /* Incluye el borde y el relleno en el tamaño total */
+}
+
+.barra {
+    top: 0;
+    /* Coloca la barra en la parte superior del viewport */
+    left: 0;
+    /* Alinea la barra en el borde izquierdo del viewport */
+    right: 0;
+    /* Alinea la barra en el borde derecho del viewport */
+    position: fixed;
+    /* Barra fija en la parte superior */
+    display: flex;
+    /* Diseño en línea */
+    justify-content: space-between;
+    /* Espacio uniformemente entre los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    padding: 15px 40px;
+    /* Relleno superior e inferior de 15px, relleno izquierdo y derecho de 40px */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    /* Degradado lineal */
+}
+
+.logo {
+    width: 5%;
+    /* Ancho del 5% del contenedor principal */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+}
+
+.barra-navegacion {
+    text-align: end;
+    /* Alinea el texto a la derecha */
+}
+
+.barra-navegacion li {
+    display: inline-block;
+    /* Elementos de lista en línea */
+    padding: 0 20px;
+    /* Relleno izquierdo y derecho de 20px */
+    margin: 0;
+    /* Sin márgenes */
+}
+
+.barra-navegacion li a {
+    text-decoration: none;
+    /* Sin decoración de enlace */
+    color: white;
+    /* Texto blanco */
+    position: relative;
+    /* Posición relativa para elementos secundarios posicionados absolutamente */
+    transition: color 0.3s;
+    /* Transición suave de color */
+}
+
+.barra-navegacion li a:hover {
+    color: #FFD700;
+    /* Cambia el color a dorado */
+}
+
+.barra-navegacion li a::after {
+    content: "";
+    /* Contenido vacío */
+    display: block;
+    /* Muestra como un bloque */
+    width: 0;
+    /* Ancho inicial de 0 */
+    height: 2px;
+    /* Grosor de la rayita */
+    background-color: #FFD700;
+    /* Color de la rayita */
+    position: absolute;
+    /* Posición absoluta en relación con el enlace padre */
+    bottom: 0;
+    /* Coloca la rayita en la parte inferior del enlace */
+    left: 50%;
+    /* Centra la rayita horizontalmente */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    /* Transición suave de la longitud y posición de la rayita */
+}
+
+.barra-navegacion li a:hover::after,
+.barra-navegacion li a.active::after {
+    width: 100%;
+    /* Ancho del 100% */
+    left: 0;
+    /* Coloca la rayita en la posición inicial */
+}
+
+.barra-navegacion li a.active {
+    text-decoration: none;
+    /* Sin decoración de enlace */
+    color: gold;
+    /* Texto dorado cuando la opción está activa */
+}
+
+.portada {
+    background-size: cover;
+    /* Ajusta la imagen de fondo para cubrir completamente el contenedor */
+    background-position: center;
+    /* Centra la imagen de fondo */
+    height: 100vh;
+    /* Altura del 100% del viewport height */
+    display: flex;
+    /* Diseño en línea */
+    flex-direction: column;
+    /* Apila elementos verticalmente */
+    justify-content: center;
+    /* Centra verticalmente los elementos */
+    align-items: start;
+    /* Alinea los elementos a la izquierda */
+}
+
+.encabezado {
+    display: flex;
+    /* Diseño en línea */
+    justify-content: flex-start;
+    /* Alinea al comienzo del contenedor */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+}
+
+.home .portada {
+    background-color: #c70f0f;
+    /* Color de fondo específico para la sección home */
+}
+
+.home .encabezado {
+    text-align: left;
+    /* Alinea el texto al lado izquierdo */
+    margin-left: 40px;
+    /* Establece un margen de 40px desde el borde izquierdo */
+}
+
+.cursos .portada {
+    background-color: #0fc73d;
+    /* Color de fondo específico para la sección cursos */
+}
+
+.cursos .encabezado {
+    text-align: right;
+    /* Alinea el texto al lado derecho */
+    margin-left: auto;
+    /* Establece el margen izquierdo automático para empujar el texto hacia la derecha */
+    margin-right: 60px;
+    /* Establece un margen de 60px desde el borde derecho */
+}
+
+.articulos .portada {
+    background-color: #4f0fc7;
+    /* Color de fondo específico para la sección artículos */
+}
